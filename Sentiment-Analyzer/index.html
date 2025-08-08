@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Week 1 — AAA Game Pitch Prep</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#7c3aed;color-scheme:dark}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+    body{background:linear-gradient(180deg,var(--bg),#071022);color:#e6eef8;line-height:1.5;padding:32px}
+    .wrapper{max-width:900px;margin:0 auto}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#0ea5a4);display:flex;align-items:center;justify-content:center;font-weight:700}
+    h1{margin:0;font-size:28px}
+    p.lead{color:var(--muted);margin-top:6px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px;margin-top:20px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .meta{font-size:13px;color:var(--muted)}
+    pre{background:#041027;padding:12px;border-radius:8px;overflow:auto;font-family:SFMono-Regular,Menlo,monospace;font-size:13px}
+    .badge{display:inline-block;background:rgba(124,58,237,0.12);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:600}
+    ul{margin:0;padding-left:18px}
+    footer{color:var(--muted);font-size:13px;margin-top:18px}
+    @media (max-width:840px){.grid{grid-template-columns:1fr;}.logo{width:52px;height:52px}}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="logo">W1</div>
+      <div>
+        <h1>Week 1 — AAA Game Pitch: Spec Ops (Remake)</h1>
+        <p class="lead">Training program deliverable: build contextual research and a pitch-ready summary. This page shows the rationale and results.</p>
+      </div>
+    </header>
+
+    <div class="card grid">
+      <main>
+        <section>
+          <h2>Project context</h2>
+          <p class="meta">Week 1 — Training program. Task: create a pitch to present to an investment panel for a AAA game remake or new IP.</p>
+          <p>To support the pitch, I built a <strong>sentiment analyzer</strong> and ran it over public chatter for the company’s dormant titles. Reddit was used as the primary social signal because of its large, engaged gaming communities and thread-level discussion depth.</p>
+        </section>
+
+        <section style="margin-top:14px">
+          <h2>Methodology (brief)</h2>
+          <ul>
+            <li>Collected Reddit posts and comments mentioning the company’s dormant titles (time-bounded crawl).</li>
+            <li>Preprocessed text (cleaning, tokenization, stop-word removal).</li>
+            <li>Built a sentiment analyzer tuned for gaming discussions (lexicon + fine-tuned classifier).</li>
+            <li>Scored titles by aggregate positive sentiment, discussion volume, and trend velocity.</li>
+          </ul>
+        </section>
+
+        <section style="margin-top:14px">
+          <h2>Key finding</h2>
+          <p>The analysis showed that <strong>Spec Ops</strong> generated the most chatter and strongest positive sentiment on Reddit around the idea of a <em>remake</em>. This made it the prime candidate for the AAA pitch.</p>
+
+          <pre>Top title: Spec Ops
+Why: highest positive signal + sustained volume + community interest in a remake</pre>
+        </section>
+
+        <section style="margin-top:14px">
+          <h2>Pitch summary (elevator)</h2>
+          <p><strong>Opportunity:</strong> Remake <em>Spec Ops</em> as a modern, single-player cinematic AAA experience with optional co-op and live-service adjacent features. Community analysis indicates strong brand recognition and active demand that can be converted into preorders and early-engagement marketing.</p>
+
+          <p><strong>Why now?</strong> Nostalgia-driven remakes have high conversion when combined with clear modernizations (combat, AI, storytelling). Reddit sentiment shows both older fans and younger players discussing the franchise and requesting a return.</p>
+
+          <h3 style="margin-top:8px">Value props to emphasize to investors</h3>
+          <ul>
+            <li>Built-in audience and demonstrable demand via social signals.</li>
+            <li>Lower concept-risk compared with brand-new IP; faster path to monetization.</li>
+            <li>Potential for franchise reactivation across DLC, remasters, and media tie-ins.</li>
+          </ul>
+        </section>
+
+        <section style="margin-top:14px">
+          <h2>Appendix — reproducible notes</h2>
+          <p class="meta">(Place these in the repo/this folder for future reviewers.)</p>
+          <pre># Commands & artifacts
+scripts/collect_reddit.py  # crawler
+models/sentiment/          # trained classifier + tokenizer
+reports/spec_ops_analysis.md  # full analysis
+presentation/pitch_deck.pdf  # investor deck (output)
+</pre>
+        </section>
+
+      </main>
+
+      <aside>
+        <div class="card" style="padding:14px;"> 
+          <p class="badge">Week 1</p>
+          <h3 style="margin-top:10px;margin-bottom:6px">Snapshot</h3>
+          <p class="meta">Task: Pitch a AAA game to an investment panel.</p>
+
+          <h4 style="margin-top:12px;margin-bottom:6px">Core result</h4>
+          <p><strong>Spec Ops — Remake</strong></p>
+
+          <h4 style="margin-top:12px;margin-bottom:6px">Data sources</h4>
+          <ul>
+            <li>Reddit (posts + comments)</li>
+            <li>Internal title list (dormant IPs)</li>
+          </ul>
+
+          <h4 style="margin-top:12px;margin-bottom:6px">Next steps</h4>
+          <ol>
+            <li>Build short pitch deck (5 mins): market, concept, monetization, ask.</li>
+            <li>Prepare demo vertical slice + tech feasibility notes.</li>
+            <li>Run deeper community interviews & focused surveys.</li>
+          </ol>
+
+          <div style="margin-top:12px;font-size:13px;color:var(--muted)">Place this file at: <code>week1/README.html</code></div>
+        </div>
+        <div style="margin-top:14px;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)">
+          <strong>Commit tip</strong>
+          <p class="meta" style="margin-top:6px">To create the folder on GitHub: create this file at <code>week1/README.html</code> using the web UI or commit via git. GitHub will create the folder automatically when the file path includes the folder name.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div class="card" style="padding:12px">Made during Week 1 of the training program — research & pitch prep for an investor panel. Want this converted to a printable README.md or a 3-slide pitch deck template? Reply and I'll generate it.</div>
+    </footer>
+  </div>
+</body>
+</html>
