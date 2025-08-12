@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Week 2 — Sentiment Analyzer (VADER NLP)</title>
+  <title>Week 1 — Sentiment Analyzer (VADER NLP)</title>
   <style>
     body { 
       background:#0f1724; 
@@ -21,17 +21,17 @@
 </head>
 <body>
   <h1>Week 1 — Sentiment Analyzer (VADER NLP)</h1>
-  <p class="muted">Goal: identify the most promising dormant IP for revival using community sentiment data.</p>
+  <p class="muted">Goal: find the most promising dormant IP for revival using community sentiment.</p>
 
-  <h2>The tool</h2>
-  <p>Custom sentiment analysis pipeline built on <strong>VADER (Valence Aware Dictionary and sEntiment Reasoner)</strong>, optimized for short, informal text like Reddit posts and comments.</p>
+  <h2>Approach</h2>
+  <p>Built a sentiment analysis pipeline around <strong>VADER</strong> (Valence Aware Dictionary and sEntiment Reasoner), ideal for short, informal text like Reddit posts.</p>
 
   <h3>Steps:</h3>
   <ul>
     <li>Collected Reddit posts/comments mentioning dormant titles.</li>
-    <li>Cleaned and normalized text for better sentiment accuracy.</li>
-    <li>Scored each entry using VADER’s compound score.</li>
-    <li>Aggregated by title and ranked using:
+    <li>Cleaned and normalized text for consistent analysis.</li>
+    <li>Scored each using VADER’s compound sentiment score.</li>
+    <li>Ranked titles by:
       <ul>
         <li>Positive sentiment %</li>
         <li>Discussion volume</li>
@@ -43,20 +43,20 @@
   <h3>Core script snippet:</h3>
   <pre>
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-analyzer = SentimentIntensityAnalyzer()
 
+analyzer = SentimentIntensityAnalyzer()
 text = "Spec Ops remake would be amazing!"
 score = analyzer.polarity_scores(text)
 print(score['compound'])
-  </pre
+  </pre>
 
   <h2>Result</h2>
   <pre>
 Winner: Spec Ops
-Reason: highest positive sentiment + strong sustained discussion + frequent remake requests
+Reason: highest positive sentiment + sustained discussion + clear remake interest
   </pre>
 
   <h2>Why it matters</h2>
-  <p>Instead of guessing which title to revive, this method turns community chatter into measurable, reproducible data — providing evidence for strategic decisions and investor discussions.</p>
+  <p>This turns vague “buzz” into measurable, reproducible data, giving investors and decision-makers confidence in choosing a revival candidate.</p>
 </body>
 </html>
