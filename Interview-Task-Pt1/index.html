@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Marketing Data Analysis</title>
+  <style>
+    :root { --bg:#0f1724; --section:#0b1220; --muted:#94a3b8; --accent:#7c3aed; color-scheme:dark }
+    html, body { height:100%; margin:0; font-family:Inter,ui-sans-serif,system-ui }
+    body { background:linear-gradient(180deg,var(--bg),#071022); color:#e6eef8; line-height:1.5; padding:32px }
+    .wrapper { max-width:900px; margin:0 auto }
+    header { display:flex; align-items:center; gap:16px }
+    .logo { width:64px; height:64px; border-radius:12px; background:linear-gradient(135deg,var(--accent),#0ea5a4); display:flex; align-items:center; justify-content:center; font-weight:700 }
+    h1 { margin:0; font-size:28px }
+    p.lead { color:var(--muted); margin-top:6px }
+    .section { background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01)); padding:20px; border-radius:12px; margin-top:20px; box-shadow:0 6px 18px rgba(2,6,23,0.6) }
+    pre { background:#041027; padding:12px; border-radius:8px; overflow:auto; font-family:monospace; font-size:13px }
+    .meta { font-size:13px; color:var(--muted) }
+    img.graph { width:100%; border-radius:8px; margin-top:10px; box-shadow:0 4px 12px rgba(0,0,0,0.4) }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="logo">P1</div>
+      <div>
+        <h1>2K Interview (Part 1): Marketing Data Analysis</h1>
+        <p class="lead">Exploring customer signups, demographics, and purchasing patterns to inform marketing strategy.</p>
+      </div>
+    </header>
+
+    <div class="section">
+      <h2>Project Context</h2>
+      <p class="meta">Part 1 of multi-stage interview process</p>
+      <p>Given a dataset of customer registrations and purchase behavior, I was tasked with identifying trends, segmenting the customer base, and uncovering actionable insights to inform marketing decisions.</p>
+    </div>
+
+    <div class="section">
+      <h2>Key Analysis Areas</h2>
+      <ul>
+        <li><strong>Signup Trends:</strong> Understanding how customer registrations evolve over time</li>
+        <li><strong>Demographics:</strong> Profiling age distribution of customers</li>
+        <li><strong>Behavior Patterns:</strong> Linking first purchase profit to repeat purchase likelihood</li>
+        <li><strong>Customer Segmentation:</strong> Using K-Means clustering to identify key customer groups</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Example Code Snippet</h2>
+      <p class="meta">From <code>visualizations.py</code> – plotting signup trends</p>
+      <pre>
+        signup_counts = df["Registration Date"].value_counts().sort_index()
+        signup_counts_smoothed = signup_counts.rolling(window=7, center=True).mean()
+
+        fig, ax = plt.subplots(figsize=(14, 8))
+        ax.plot(signup_counts_smoothed.index, signup_counts_smoothed.values,
+                linestyle='-', linewidth=2, color='darkred')
+        ax.set(title="Daily Signups Over Time (7-Day Rolling Average)",
+               xlabel="Date", ylabel="Number of Signups")
+      </pre>
+    </div>
+
+    <div class="section">
+      <h2>Outputs</h2>
+      <p class="meta">Generated from Python scripts using Matplotlib & Seaborn</p>
+      <img src="v_signup_trends.png" alt="Signup Trends" class="graph">
+      <img src="v_age_distribution.png" alt="Age Distribution" class="graph">
+      <img src="v_signups_by_day.png" alt="Signups by Day" class="graph">
+      <img src="ml_linear_regression.png" alt="Linear Regression" class="graph">
+      <img src="ml_kmeans_clustering.png" alt="K-Means Clustering" class="graph">
+    </div>
+
+    <div class="section">
+      <h2>Findings</h2>
+      <p>
+        The analysis revealed seasonal signup spikes aligned with major promotions, a predominantly mid-20s to early-30s customer base, and clear high-value customer segments.
+        Linear regression indicated a positive relationship between initial order profit and repeat purchase count, while K-Means clustering highlighted three distinct segments:
+        <em>One-Time Shoppers</em>, <em>Loyal Repeat Buyers</em>, and <em>High-Value Customers</em>.
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
