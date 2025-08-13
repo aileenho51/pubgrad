@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sentiment Analyzer</title>
+  <style>
+    :root { --bg:#0f1724; --section:#0b1220; --muted:#94a3b8; --accent:#7c3aed; color-scheme:dark }
+    html, body { height:100%; margin:0; font-family:Inter,ui-sans-serif,system-ui }
+    body { background:linear-gradient(180deg,var(--bg),#071022); color:#e6eef8; line-height:1.5; padding:32px }
+    .wrapper { max-width:900px; margin:0 auto }
+    header { display:flex; align-items:center; gap:16px }
+    .logo { width:64px; height:64px; border-radius:12px; background:linear-gradient(135deg,var(--accent),#0ea5a4); display:flex; align-items:center; justify-content:center; font-weight:700 }
+    h1 { margin:0; font-size:28px }
+    p.lead { color:var(--muted); margin-top:6px }
+    .section { background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01)); padding:20px; border-radius:12px; margin-top:20px; box-shadow:0 6px 18px rgba(2,6,23,0.6) }
+    pre { background:#041027; padding:12px; border-radius:8px; overflow:auto; font-family:monospace; font-size:13px }
+    .meta { font-size:13px; color:var(--muted) }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="logo">W2</div>
+      <div>
+        <h1>Sentiment Analyzer for AAA Game Pitch</h1>
+        <p class="lead">Core research for a Triple-A remake investment pitch using NLP to gauge community demand.</p>
+      </div>
+    </header>
+
+    <div class="section">
+      <h2>Project Context</h2>
+      <p class="meta">Week 2 deliverable for training program</p>
+      <p>As part of preparing a <strong>AAA investment pitch</strong>, I wanted to choose the most commercially promising dormant IP to remake.
+      To support this decision, I built a <strong>sentiment analyzer</strong> using <em>VADER NLP</em> and ran it on Reddit discussions about several candidate titles.</p>
+    </div>
+
+    <div class="section">
+      <h2>Why Sentiment Analysis?</h2>
+      <ul>
+        <li>Quantifies positive, neutral, and negative sentiment from gaming discussions</li>
+        <li>Helps validate market demand beyond personal opinion</li>
+        <li>Supports investor confidence with measurable community data</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Example Code (VADER NLP)</h2>
+      <p class="meta">Minimal demo only (actual analysis looped over thousands of Reddit posts)</p>
+      <pre>
+        from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+
+        analyzer = SentimentIntensityAnalyzer()
+        text = "Spec Ops remake would be amazing!"
+        score = analyzer.polarity_scores(text)
+        print(score['compound'])  # 0.771 (positive sentiment)
+      </pre>
+    </div>
+
+    <div class="section">
+      <h2>Result</h2>
+      <p>Spec Ops showed the highest share of positive sentiment and sustained discussion volume, making it the strongest candidate for the remake pitch.
+      Investors liked the pitch, though noted the previous title’s sales history as a risk factor.</p>
+    </div>
+
+  </div>
+</body>
+</html>
