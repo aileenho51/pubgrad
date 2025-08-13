@@ -26,8 +26,17 @@
       text-decoration:none;
       transition:background 0.2s ease;
     }
-    a.button:hover {
-      background:#6d28d9;
+    a.button:hover { background:#6d28d9 }
+    .disclaimer {
+      background:rgba(255,255,255,0.05);
+      padding:12px;
+      border-radius:8px;
+      font-size:14px;
+      color:var(--muted);
+      margin-top:20px;
+    }
+    .button-group a {
+      margin-right:8px;
     }
   </style>
 </head>
@@ -42,9 +51,13 @@
       </div>
     </header>
 
+    <div class="disclaimer">
+      <strong>Note:</strong> This page is a <em>training exercise</em> only. All content and data are fictional and for demonstration purposes. This is not an actual NBA 2K campaign.
+    </div>
+
     <div class="section">
       <h2>Campaign Overview</h2>
-      <p class="meta">Web marketing activation concept</p>
+      <p class="meta">Web marketing activation concept (training use only)</p>
       <p>We’re bringing <strong>Travis Scott vs J Cole</strong> to NBA 2K26 in a head-to-head community showdown.
       Players pick a team, compete in daily and weekly missions, and stack up rewards for their side.</p>
     </div>
@@ -64,13 +77,15 @@
         <li><strong>Old:</strong> Landing page → Buffer info page → Final CTA page</li>
         <li><strong>New:</strong> Landing page → Final CTA page directly</li>
       </ul>
-      <p>We swapped the carousel with a bold Travis Scott vs J Cole matchup banner for maximum visual impact.</p>
     </div>
 
     <div class="section">
       <h2>See It in Action</h2>
-      <p>Click below to explore the live prototype in the same GitHub folder.</p>
-      <a class="button" href="1.html">▶ Play Matchup</a>
+      <p>Click below to explore the live prototype in the same GitHub folder or compare with the current real NBA 2K site.</p>
+      <div class="button-group">
+        <a class="button" href="1.html">&#9654; Play Matchup (Prototype)</a>
+        <a class="button" href="https://www.nba2k.com/" target="_blank">Visit Official NBA 2K Site</a>
+      </div>
     </div>
 
   </div>
